@@ -1,0 +1,15 @@
+# Log file
+*.log
+log.basePath_IS_UNDEFINED/
+
+# Compiled code #
+target/
+
+# Compiled class file
+*.class
+
+# IntelliJ files #
+QueryGenerator/.idea/
+*.iml
+
+*.xlsx
