@@ -7,18 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.io.IOException;
-
 @RestController
 public class Controller {
 
     @RequestMapping(value = "generate", method = {RequestMethod.POST})
-    public String create(@RequestBody ClassToCreate className) throws IOException {
+    public String create(@RequestBody ClassToCreate className) throws Exception {
 
         CreateClasses createClasses = new CreateClasses(className.getClassName());
         createClasses.create();
     return "Created";
     }
-
-    
 }
