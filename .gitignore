@@ -9,7 +9,7 @@ target/
 *.class
 
 # IntelliJ files #
-*/.idea/
+.idea/
 *.iml
 
 *.xlsx
