@@ -9,7 +9,7 @@ target/
 *.class
 
 # IntelliJ files #
-QueryGenerator/.idea/
+*/.idea/
 *.iml
 
 *.xlsx
