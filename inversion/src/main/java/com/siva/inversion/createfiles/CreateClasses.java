@@ -32,28 +32,30 @@ public class CreateClasses {
     private final String serviceRequest = "ServiceRequest";
     private final String serviceResponse = "ServiceResponse";
     private final String facadeMapper = "FromFacadeMapper";
-
+    private  final String directoryName = "autogene";
 
     //Create all the files
-    public CreateClasses(String name){
+    public CreateClasses(String name) throws Exception {
         className= name;
 
         //All dtos
-        payloadRequestFileName = "D:\\test\\"+className+payloadRequest+".java";
-        payloadResponseFileName = "D:\\test\\"+className+payloadResponse+".java";
-        facadeRequestFileName = "D:\\test\\"+className+facadeRequest+".java";
-        facadeResponseFileName = "D:\\test\\"+className+facadeResponse+".java";
-        serviceRequestFileName = "D:\\test\\"+className+serviceRequest+".java";
-        serviceResponseFileName = "D:\\test\\"+className+serviceResponse+".java";
-
-        //Response Mapper
-        responseMapper = "D:\\test\\"+className+payloadResponse+facadeMapper+".java";
+        new File(directoryName).mkdir();
 
 
+                    payloadRequestFileName = directoryName+"//"+ className + payloadRequest + ".java";
+                    payloadResponseFileName = directoryName +"//"+ className + payloadResponse + ".java";
+                    facadeRequestFileName = directoryName +"//"+ className + facadeRequest + ".java";
+                    facadeResponseFileName = directoryName+"//"+ className + facadeResponse + ".java";
+                    serviceRequestFileName = directoryName+"//"+ className + serviceRequest + ".java";
+                    serviceResponseFileName = directoryName +"//"+ className + serviceResponse + ".java";
+
+                    //Response Mapper
+                     responseMapper = directoryName+"//" + className + payloadResponse + facadeMapper + ".java";
 
 
-        controllerLayer = "D:\\test\\"+className+serviceRequest+".java";
-    }
+                    controllerLayer =directoryName +"//"+ className + serviceRequest + ".java";
+            }
+
 
 
 
