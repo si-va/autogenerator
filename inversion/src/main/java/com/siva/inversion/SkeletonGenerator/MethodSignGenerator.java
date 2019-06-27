@@ -1,10 +1,10 @@
-package com.siva.inversion.skeletonGenerator;
+package com.siva.inversion.SkeletonGenerator;
 
 import com.siva.inversion.Utility.Utility;
-import com.siva.inversion.skeletonGenerator.Constants.Annotations;
-import com.siva.inversion.skeletonGenerator.Constants.ExceptionsType;
-import com.siva.inversion.skeletonGenerator.Constants.Names;
-import com.siva.inversion.skeletonGenerator.Constants.Type;
+import com.siva.inversion.SkeletonGenerator.Constants.Annotations;
+import com.siva.inversion.SkeletonGenerator.Constants.ExceptionsType;
+import com.siva.inversion.SkeletonGenerator.Constants.Names;
+import com.siva.inversion.SkeletonGenerator.Constants.Type;
 
 public class MethodSignGenerator {
 
@@ -13,7 +13,7 @@ public class MethodSignGenerator {
         sign += Annotations.Override.value();
         sign += "\n";
         switch(methodType){
-            case "Controller":
+            case "Payload":
                 sign += controllerMethodSignature(methodName);
                 break;
             case "Facade":
@@ -36,7 +36,7 @@ public class MethodSignGenerator {
         String response = "ResponseEntity" +
                 "<" +
                 Utility.getClassName(methodName) +
-                Names.Controller.value() +
+                Names.Payload.value() +
                 Type.Response.value() +
                 ">";
         String parameters =
@@ -44,7 +44,7 @@ public class MethodSignGenerator {
                         Annotations.Valid.value() + " " +
                         Annotations.RequestBody.value() + " " +
                         Utility.getClassName(methodName) +
-                        Names.Controller.value() +
+                        Names.Payload.value() +
                         Type.Request.value() + " " +
                         "request" +
                         ")";
@@ -109,3 +109,5 @@ public class MethodSignGenerator {
     }
 
 }
+
+

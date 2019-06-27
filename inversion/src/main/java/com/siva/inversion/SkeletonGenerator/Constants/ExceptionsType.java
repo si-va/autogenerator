@@ -1,4 +1,4 @@
-package com.siva.inversion.skeletonGenerator.Constants;
+package com.siva.inversion.SkeletonGenerator.Constants;
 
 public enum ExceptionsType {
     Exception("Exception"),

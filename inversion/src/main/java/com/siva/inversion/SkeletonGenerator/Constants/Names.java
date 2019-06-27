@@ -1,7 +1,9 @@
-package com.siva.inversion.skeletonGenerator.Constants;
+package com.siva.inversion.SkeletonGenerator.Constants;
 
 public enum Names {
-    Controller("Payload"),
+    Mapper("Mapper"),
+    Controller("Controller"),
+    Payload("Payload"),
     Facade("Facade"),
     Service("Service");
 

@@ -3,7 +3,7 @@ package com.siva.inversion.classgenerator;
 import com.siva.inversion.classgenerator.constants.BaseClasses;
 import com.siva.inversion.classgenerator.constants.Extra;
 import com.siva.inversion.classgenerator.constants.FileExtension;
-import com.siva.inversion.skeletonGenerator.Constants.*;
+import com.siva.inversion.SkeletonGenerator.Constants.*;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -23,7 +23,7 @@ public class DtoGenerator{
 
     public void createPayloadRequest() throws IOException {
 
-        String nameOftheClass = serviceName + Names.Controller.value() + Type.Request.value();
+        String nameOftheClass = serviceName + Names.Payload.value() + Type.Request.value();
         String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
         String line = Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
                 + Extra.EXTENDS.value() + " "+ BaseClasses.PAYLOAD_REQUEST.value()
@@ -50,7 +50,7 @@ public class DtoGenerator{
 
     public void createPayloadResponse() throws IOException {
 
-        String nameOftheClass = serviceName + Names.Controller.value() + Type.Response.value();
+        String nameOftheClass = serviceName + Names.Payload.value() + Type.Response.value();
         String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
         String line = Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
                 + Extra.EXTENDS.value() + " "+ BaseClasses.PAYLOAD_RESPONSE.value()
@@ -183,7 +183,7 @@ public class DtoGenerator{
 
     public void createResponseMapper() throws IOException {
 
-        String nameOftheClass = serviceName + Names.Controller.value() + Type.Response.value()+"From"+Names.Facade.value()+"Mapper";
+        String nameOftheClass = serviceName + Names.Payload.value() + Type.Response.value()+"From"+Names.Facade.value()+"Mapper";
         String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
         String line = Annotations.COMPONENT.value() + Extra.OPENNING_BRACKET.value()
                 + "\""+ nameOftheClass + "\""
@@ -192,7 +192,7 @@ public class DtoGenerator{
                 + Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
                 + Extra.EXTENDS.value() + " "+ BaseClasses.PAYLOAD_RESPONSE_MAPPER.value()
                 + Extra.LESS_SIGN.value() + serviceName + Names.Facade.value() + Type.Response.value()
-                + Extra.COMMA.value() + serviceName + Names.Controller.value() + Type.Response.value()
+                + Extra.COMMA.value() + serviceName + Names.Payload.value() + Type.Response.value()
                 + Extra.CLOSING_BRACKET.value()
                 + Extra.NEW_LINE.value()
                 + Extra.OPENING_PARANETHESIS.value()
