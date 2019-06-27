@@ -3,7 +3,8 @@ package com.siva.inversion.skeletonGenerator.Constants;
 public enum Annotations {
     Override("@Override"),
     Valid("@Valid"),
-    RequestBody("@RequestBody");
+    RequestBody("@RequestBody"),
+    COMPONENT("@Component");
 
     private String name;
 
