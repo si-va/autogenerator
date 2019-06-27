@@ -26,7 +26,7 @@ public class DtoGenerator{
         String nameOftheClass = serviceName + Names.Controller.value() + Type.Request.value();
         String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
         String line = Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
-                + Extra.EXTENDS.value() + BaseClasses.PAYLOAD_REQUEST.value()
+                + Extra.EXTENDS.value() + " "+ BaseClasses.PAYLOAD_REQUEST.value()
                 + Extra.OPENING_PARANETHESIS.value()
                 + Extra.NEW_LINE.value()
                 + Extra.NEW_LINE.value()
@@ -53,7 +53,7 @@ public class DtoGenerator{
         String nameOftheClass = serviceName + Names.Controller.value() + Type.Response.value();
         String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
         String line = Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
-                + Extra.EXTENDS.value() + BaseClasses.PAYLOAD_RESPONSE.value()
+                + Extra.EXTENDS.value() + " "+ BaseClasses.PAYLOAD_RESPONSE.value()
                 + Extra.OPENING_PARANETHESIS.value()
                 + Extra.NEW_LINE.value()
                 + Extra.NEW_LINE.value()
@@ -77,9 +77,9 @@ public class DtoGenerator{
     public void createFacadeRequest() throws IOException {
 
         String nameOftheClass = serviceName + Names.Facade.value() + Type.Request.value();
-        String fileName = directoryName + "//" + FileExtension.FILE_EXTENSION.value();
+        String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
         String line = Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
-                + Extra.EXTENDS.value() + BaseClasses.FACADE_REQUEST.value()
+                + Extra.EXTENDS.value() + " "+BaseClasses.FACADE_REQUEST.value()
                 + Extra.OPENING_PARANETHESIS.value()
                 + Extra.NEW_LINE.value()
                 + Extra.NEW_LINE.value()
@@ -104,9 +104,9 @@ public class DtoGenerator{
     public void createFacadeResponse() throws IOException {
 
         String nameOftheClass = serviceName + Names.Facade.value() + Type.Response.value();
-        String fileName = directoryName + "//" + FileExtension.FILE_EXTENSION.value();
+        String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
         String line = Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
-                + Extra.EXTENDS.value() + BaseClasses.FACADE_RESPONSE.value()
+                + Extra.EXTENDS.value() + " "+ BaseClasses.FACADE_RESPONSE.value()
                 + Extra.OPENING_PARANETHESIS.value()
                 + Extra.NEW_LINE.value()
                 + Extra.NEW_LINE.value()
@@ -130,9 +130,9 @@ public class DtoGenerator{
     public void createServiceRequest() throws IOException {
 
         String nameOftheClass = serviceName + Names.Service.value() + Type.Request.value();
-        String fileName = directoryName + "//" + FileExtension.FILE_EXTENSION.value();
+        String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
         String line = Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
-                + Extra.EXTENDS.value() + BaseClasses.SERVICE_REQUEST.value()
+                + Extra.EXTENDS.value() + " "+BaseClasses.SERVICE_REQUEST.value()
                 + Extra.OPENING_PARANETHESIS.value()
                 + Extra.NEW_LINE.value()
                 + Extra.NEW_LINE.value()
@@ -157,9 +157,9 @@ public class DtoGenerator{
     public void createServiceResponse() throws IOException {
 
         String nameOftheClass = serviceName + Names.Service.value() + Type.Response.value();
-        String fileName = directoryName + "//" + FileExtension.FILE_EXTENSION.value();
+        String fileName = directoryName + "//" + nameOftheClass  + FileExtension.FILE_EXTENSION.value();
         String line = Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
-                + Extra.EXTENDS.value() + BaseClasses.SERVICE_RESPONSE.value()
+                + Extra.EXTENDS.value() + " "+ BaseClasses.SERVICE_RESPONSE.value()
                 + Extra.OPENING_PARANETHESIS.value()
                 + Extra.NEW_LINE.value()
                 + Extra.NEW_LINE.value()
@@ -183,16 +183,18 @@ public class DtoGenerator{
 
     public void createResponseMapper() throws IOException {
 
-        String nameOftheClass = serviceName + Names.Controller.value() + Type.Response.value()+"From"+Names.Facade+"Mapper";
-        String fileName = directoryName + "//" + FileExtension.FILE_EXTENSION.value();
-        String line = Annotations.COMPONENT.value() + Extra.OPENNING_BRACKET + nameOftheClass
-
+        String nameOftheClass = serviceName + Names.Controller.value() + Type.Response.value()+"From"+Names.Facade.value()+"Mapper";
+        String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
+        String line = Annotations.COMPONENT.value() + Extra.OPENNING_BRACKET.value()
+                + "\""+ nameOftheClass + "\""
+                + Extra.CLOSING_BRACKET.value()
+                + Extra.NEW_LINE.value()
                 + Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
-                + Extra.EXTENDS.value() + BaseClasses.PAYLOAD_RESPONSE_MAPPER.value()
+                + Extra.EXTENDS.value() + " "+ BaseClasses.PAYLOAD_RESPONSE_MAPPER.value()
                 + Extra.LESS_SIGN.value() + serviceName + Names.Facade.value() + Type.Response.value()
-                + Extra.COMMA + serviceName + Names.Controller.value() + Type.Response.value()
-                + Extra.CLOSING_BRACKET
-                + Extra.NEW_LINE
+                + Extra.COMMA.value() + serviceName + Names.Controller.value() + Type.Response.value()
+                + Extra.CLOSING_BRACKET.value()
+                + Extra.NEW_LINE.value()
                 + Extra.OPENING_PARANETHESIS.value()
                 + Extra.NEW_LINE.value()
                 + Extra.NEW_LINE.value()
