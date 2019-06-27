@@ -1,6 +1,6 @@
 package com.siva.inversion.SkeletonGenerator;
 
-import com.siva.inversion.SkeletonGenerator.Constants.Type;
+import com.siva.inversion.Constants.Type;
 
 
 import java.io.BufferedWriter;
@@ -10,9 +10,9 @@ public class MethodGenerator {
 
     public static void main(String args[]){
         MethodSignGenerator methodSignGenerator = new MethodSignGenerator();
-        MethodSkeletonGenerator methodSkeletonGenerator = new MethodSkeletonGenerator();
+        ControllerMethodSkeletonGenerator controllerMethodSkeletonGenerator = new ControllerMethodSkeletonGenerator();
         System.out.println(methodSignGenerator.methodSignatureGenerator("generateUniqueNumberOtp","Payload"));
-        System.out.println(methodSkeletonGenerator.controllerMethodSkeleton("generateUniqueNumberOtp","Login"));
+        System.out.println(controllerMethodSkeletonGenerator.controllerMethodSkeleton("generateUniqueNumberOtp","Login"));
         System.out.println(methodSignGenerator.methodSignatureGenerator("generateUniqueNumberOtp","Facade"));
         System.out.println(methodSignGenerator.methodSignatureGenerator("generateUniqueNumberOtp","Service"));
     }

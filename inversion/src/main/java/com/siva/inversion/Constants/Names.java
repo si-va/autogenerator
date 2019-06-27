@@ -1,4 +1,4 @@
-package com.siva.inversion.SkeletonGenerator.Constants;
+package com.siva.inversion.Constants;
 
 public enum Names {
     Mapper("Mapper"),

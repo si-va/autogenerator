@@ -1,10 +1,10 @@
 package com.siva.inversion.SkeletonGenerator;
 
 import com.siva.inversion.Utility.Utility;
-import com.siva.inversion.SkeletonGenerator.Constants.Names;
-import com.siva.inversion.SkeletonGenerator.Constants.Type;
+import com.siva.inversion.Constants.Names;
+import com.siva.inversion.Constants.Type;
 
-public class MethodSkeletonGenerator {
+public class ControllerMethodSkeletonGenerator {
     public String controllerMethodSkeleton(String methodName, String microServiceName){
         String skeleton = "\t";
         skeleton +=
@@ -152,7 +152,4 @@ public class MethodSkeletonGenerator {
         instruction = returnWord + " " + methodCall + parameter;
         return instruction;
     }
-
-    
-
 }

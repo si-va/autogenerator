@@ -3,7 +3,7 @@ package com.siva.inversion.classgenerator;
 import com.siva.inversion.classgenerator.constants.BaseClasses;
 import com.siva.inversion.classgenerator.constants.Extra;
 import com.siva.inversion.classgenerator.constants.FileExtension;
-import com.siva.inversion.SkeletonGenerator.Constants.*;
+import com.siva.inversion.Constants.*;
 
 import java.io.File;
 import java.io.FileWriter;
