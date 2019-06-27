@@ -2,6 +2,7 @@ package com.siva.inversion.skeletonGenerator;
 
 import com.siva.inversion.Utility.Utility;
 import com.siva.inversion.skeletonGenerator.Constants.Annotations;
+import com.siva.inversion.skeletonGenerator.Constants.ExceptionsType;
 import com.siva.inversion.skeletonGenerator.Constants.Names;
 import com.siva.inversion.skeletonGenerator.Constants.Type;
 
@@ -12,12 +13,13 @@ import java.io.FileWriter;
 public class Skeleton{
 
     public static void main(String args[]){
-        Skeleton skeleton = new Skeleton();
-        System.out.println(skeleton.methodSignatureGenerator("generateUniqueNumberOtp"));
+        MethodSignGenerator methodSignGenerator = new MethodSignGenerator();
+        System.out.println(methodSignGenerator.methodSignatureGenerator("generateUniqueNumberOtp","Controller"));
+        System.out.println(methodSignGenerator.methodSignatureGenerator("generateUniqueNumberOtp","Facade"));
+        System.out.println(methodSignGenerator.methodSignatureGenerator("generateUniqueNumberOtp","Service"));
     }
 
     public void skeletonGenerator(String name){
-
 
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter(name + Type.Implementation.value()));
@@ -32,32 +34,22 @@ public class Skeleton{
         }
     }
 
-    public String methodSignatureGenerator(String methodName){
-       String controllerImpl;
-       String visibility = "public" ;
-       String response = "ResponseEntity" +
-               "<" +
-                   Utility.getClassName(methodName) +
-                   Names.Controller.value() +
-                   Type.Response.value() +
-               ">";
-       String parameters =
-               "(" +
-                   Annotations.Valid.value() + " " +
-                   Annotations.RequestBody.value() + " " +
-                   Utility.getClassName(methodName) +
-                   Names.Controller.value() +
-                   Type.Request.value() + " " +
-                   "request" +
-               ")";
-
-       String exception = "throws Exception {";
-
-       controllerImpl = visibility + " " + response + " " + methodName + parameters + " " + exception;
-       return controllerImpl;
-    }
-
 }
+
+
+/*
+    @Override
+    public GenerateUniqueNumberOtpFacadeResponse generateUniqueNumberOtp(GenerateUniqueNumberOtpFacadeRequest request) throws MicroServiceException {
+        //Generating OTP
+        GenerateUniqueOtpServiceRequest generateUniqueOtpServiceRequest = generateServiceRequest(request, GenerateUniqueOtpServiceRequest.class);
+
+        loginService.generateUniqueNumberOtp(generateUniqueOtpServiceRequest);
+
+        GenerateUniqueNumberOtpFacadeResponse generateUniqueNumberOtpFacadeResponse = generateFacadeResponse(GenerateUniqueNumberOtpFacadeResponse.class, request);
+
+        return generateUniqueNumberOtpFacadeResponse;
+    }
+ */
 
 /*
  @Override
@@ -76,3 +68,4 @@ public class Skeleton{
         return generateControllerResponse(responsePayload, HttpStatus.OK);
     }
  */
+
