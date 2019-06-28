@@ -1,9 +1,9 @@
-package com.siva.inversion.SkeletonGenerator;
+package com.siva.inversion.skeletongenerator;
 
-import com.siva.inversion.Constants.Type;
-import com.siva.inversion.SkeletonGenerator.Skeletons.ControllerMethodSkeletonGenerator;
-import com.siva.inversion.SkeletonGenerator.Skeletons.FacadeMethodSkeletonGenerator;
-import com.siva.inversion.SkeletonGenerator.Skeletons.ServiceMethodSkeletonGenerator;
+import com.siva.inversion.constants.Type;
+import com.siva.inversion.skeletongenerator.skeletontype.ControllerMethodSkeletonGenerator;
+import com.siva.inversion.skeletongenerator.skeletontype.FacadeMethodSkeletonGenerator;
+import com.siva.inversion.skeletongenerator.skeletontype.ServiceMethodSkeletonGenerator;
 
 
 import java.io.BufferedWriter;

@@ -1,7 +1,7 @@
-package com.siva.inversion.Utility;
+package com.siva.inversion.utility;
 
-import com.siva.inversion.CustomException.ExceptionBuilder;
-import com.siva.inversion.CustomException.FailedOperationException;
+import com.siva.inversion.customexceptions.ExceptionBuilder;
+import com.siva.inversion.customexceptions.FailedOperationException;
 
 public class Utility {
     public static final String stringNullException = "The parameter String is Null or Empty";

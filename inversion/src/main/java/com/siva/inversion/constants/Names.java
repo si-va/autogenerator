@@ -1,4 +1,4 @@
-package com.siva.inversion.Constants;
+package com.siva.inversion.constants;
 
 public enum Names {
     Mapper("Mapper"),

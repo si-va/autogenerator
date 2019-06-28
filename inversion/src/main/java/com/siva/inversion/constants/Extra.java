@@ -1,4 +1,4 @@
-package com.siva.inversion.classgenerator.constants;
+package com.siva.inversion.constants;
 
 public enum Extra {
 

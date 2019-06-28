@@ -1,9 +1,9 @@
 package com.siva.inversion.classgenerator;
 
-import com.siva.inversion.classgenerator.constants.BaseClasses;
-import com.siva.inversion.classgenerator.constants.Extra;
-import com.siva.inversion.classgenerator.constants.FileExtension;
-import com.siva.inversion.Constants.*;
+import com.siva.inversion.constants.BaseClasses;
+import com.siva.inversion.constants.Extra;
+import com.siva.inversion.constants.FileExtension;
+import com.siva.inversion.constants.*;
 
 import java.io.File;
 import java.io.FileWriter;

@@ -1,8 +1,8 @@
 package com.siva.inversion.controller;
 
 
-import com.siva.inversion.CustomException.FailedOperationException;
-import com.siva.inversion.Utility.Utility;
+import com.siva.inversion.customexceptions.FailedOperationException;
+import com.siva.inversion.utility.Utility;
 import com.siva.inversion.classgenerator.DtoGenerator;
 import com.siva.inversion.classgenerator.dto.request.ServiceRequest;
 import org.springframework.web.bind.annotation.RequestBody;

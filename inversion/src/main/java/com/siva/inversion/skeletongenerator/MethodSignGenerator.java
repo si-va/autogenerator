@@ -1,11 +1,11 @@
-package com.siva.inversion.SkeletonGenerator;
+package com.siva.inversion.skeletongenerator;
 
-import com.siva.inversion.CustomException.FailedOperationException;
-import com.siva.inversion.Utility.Utility;
-import com.siva.inversion.Constants.Annotations;
-import com.siva.inversion.Constants.ExceptionsType;
-import com.siva.inversion.Constants.Names;
-import com.siva.inversion.Constants.Type;
+import com.siva.inversion.customexceptions.FailedOperationException;
+import com.siva.inversion.utility.Utility;
+import com.siva.inversion.constants.Annotations;
+import com.siva.inversion.constants.ExceptionsType;
+import com.siva.inversion.constants.Names;
+import com.siva.inversion.constants.Type;
 
 public class MethodSignGenerator {
 

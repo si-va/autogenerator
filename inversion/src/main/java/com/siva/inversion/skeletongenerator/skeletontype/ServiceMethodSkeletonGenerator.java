@@ -1,8 +1,8 @@
-package com.siva.inversion.SkeletonGenerator.Skeletons;
+package com.siva.inversion.skeletongenerator.skeletontype;
 
-import com.siva.inversion.Constants.Names;
-import com.siva.inversion.Constants.Type;
-import com.siva.inversion.Utility.Utility;
+import com.siva.inversion.constants.Names;
+import com.siva.inversion.constants.Type;
+import com.siva.inversion.utility.Utility;
 
 public class ServiceMethodSkeletonGenerator {
 
