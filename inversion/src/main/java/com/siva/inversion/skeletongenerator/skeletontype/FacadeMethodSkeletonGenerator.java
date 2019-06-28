@@ -5,7 +5,7 @@ import com.siva.inversion.constants.Names;
 import com.siva.inversion.constants.Type;
 
 public class FacadeMethodSkeletonGenerator {
-    public String facadeMethodSkeleton(String methodName, String microServiceName){
+    public String facadeMethodSkeleton(String methodName){
         String skeleton = "\t";
         skeleton +=
             serviceRequestInit(methodName) +

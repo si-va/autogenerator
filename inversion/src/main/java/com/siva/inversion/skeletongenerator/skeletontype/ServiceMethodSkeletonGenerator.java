@@ -6,7 +6,7 @@ import com.siva.inversion.utility.Utility;
 
 public class ServiceMethodSkeletonGenerator {
 
-    public String serviceMethodSkeleton(String methodName, String microServiceName){
+    public String serviceMethodSkeleton(String methodName){
         String skeleton = "\t";
         skeleton +=
                 serviceResponseInit(methodName) +
