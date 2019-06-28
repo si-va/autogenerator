@@ -102,17 +102,3 @@ public class FacadeMethodSkeletonGenerator {
     }
 }
 
-/*
-    @Override
-    public GenerateUniqueNumberOtpFacadeResponse generateUniqueNumberOtp(GenerateUniqueNumberOtpFacadeRequest request) throws MicroServiceException {
-        //Generating OTP
-        GenerateUniqueOtpServiceRequest generateUniqueOtpServiceRequest = generateServiceRequest(request, GenerateUniqueOtpServiceRequest.class);
-
-        loginService.generateUniqueNumberOtp(generateUniqueOtpServiceRequest);
-
-        GenerateUniqueNumberOtpFacadeResponse generateUniqueNumberOtpFacadeResponse = generateFacadeResponse(GenerateUniqueNumberOtpFacadeResponse.class, request);
-
-        return generateUniqueNumberOtpFacadeResponse;
-    }
- */
-
