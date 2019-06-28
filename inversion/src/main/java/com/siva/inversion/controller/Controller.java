@@ -14,9 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     @RequestMapping(value = "generate", method = {RequestMethod.POST})
+
     public String create(@RequestBody ServiceRequest serviceRequest) throws Exception, FailedOperationException {
 
-        DtoGenerator dtoGenerator = new DtoGenerator(Utility.getClassName(serviceRequest.getServiceName()));
+        String microServiceName = Utility.getClassName(serviceRequest.getMicroServiceName());
+        String serviceName = Utility.getClassName(serviceRequest.getServiceName());
+
+        DtoGenerator dtoGenerator = new DtoGenerator(microServiceName,serviceName);
         dtoGenerator.create();
     return "Created";
     }

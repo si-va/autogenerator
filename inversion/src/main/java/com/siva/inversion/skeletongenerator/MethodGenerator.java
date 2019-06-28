@@ -13,7 +13,7 @@ import java.io.FileWriter;
 
 public class MethodGenerator {
 
-    public void skeletonGenerator(String name, String microService) throws FailedOperationException {
+    public static void skeletonGenerator(String name, String microService) throws FailedOperationException {
         MethodSignGenerator methodSignGenerator = new MethodSignGenerator();
         ControllerMethodSkeletonGenerator controllerMethodSkeletonGenerator = new ControllerMethodSkeletonGenerator();
         FacadeMethodSkeletonGenerator facadeMethodSkeletonGenerator = new FacadeMethodSkeletonGenerator();
