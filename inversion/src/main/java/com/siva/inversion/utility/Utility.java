@@ -6,7 +6,7 @@ import com.siva.inversion.customexceptions.FailedOperationException;
 public class Utility {
     public static final String stringNullException = "The parameter String is Null or Empty";
 
-    public static String getClassName (String string) throws FailedOperationException {
+    public static String getClassName (String string) {
         try {
             if (string != null && !string.isEmpty()) {
                 string = string.substring(0, 1).toUpperCase() + string.substring(1);
