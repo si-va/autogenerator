@@ -1,5 +1,6 @@
 package com.siva.inversion.SkeletonGenerator;
 
+import com.siva.inversion.CustomException.FailedOperationException;
 import com.siva.inversion.Utility.Utility;
 import com.siva.inversion.Constants.Annotations;
 import com.siva.inversion.Constants.ExceptionsType;
@@ -8,7 +9,7 @@ import com.siva.inversion.Constants.Type;
 
 public class MethodSignGenerator {
 
-    public String methodSignatureGenerator(String methodName, String methodType){
+    public String methodSignatureGenerator(String methodName, String methodType) throws FailedOperationException {
         String sign = "";
         sign += Annotations.Override.value();
         sign += "\n";
@@ -30,7 +31,7 @@ public class MethodSignGenerator {
         return sign;
     }
 
-    public String controllerMethodSignature(String methodName){
+    public String controllerMethodSignature(String methodName) throws FailedOperationException {
         String controllerSign;
         String visibility = "public" ;
         String response = "ResponseEntity" +
@@ -58,7 +59,7 @@ public class MethodSignGenerator {
         return controllerSign;
     }
 
-    public String facadeMethodSignature(String methodName){
+    public String facadeMethodSignature(String methodName) throws FailedOperationException {
         String facadeSign;
         String visibility = "public" ;
         String response =
@@ -83,7 +84,7 @@ public class MethodSignGenerator {
         return facadeSign;
     }
 
-    public String serviceMethodSignature(String methodName){
+    public String serviceMethodSignature(String methodName) throws FailedOperationException {
         String serviceSign;
         String visibility = "public" ;
         String response =
