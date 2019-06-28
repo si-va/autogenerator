@@ -1,4 +1,4 @@
-package com.siva.inversion.SkeletonGenerator;
+package com.siva.inversion.SkeletonGenerator.Skeletons;
 
 import com.siva.inversion.Utility.Utility;
 import com.siva.inversion.Constants.Names;
@@ -153,3 +153,18 @@ public class ControllerMethodSkeletonGenerator {
         return instruction;
     }
 }
+
+/*
+    @Override
+    public GenerateUniqueNumberOtpFacadeResponse generateUniqueNumberOtp(GenerateUniqueNumberOtpFacadeRequest request) throws MicroServiceException {
+        //Generating OTP
+        GenerateUniqueOtpServiceRequest generateUniqueOtpServiceRequest = generateServiceRequest(request, GenerateUniqueOtpServiceRequest.class);
+
+        loginService.generateUniqueNumberOtp(generateUniqueOtpServiceRequest);
+
+        GenerateUniqueNumberOtpFacadeResponse generateUniqueNumberOtpFacadeResponse = generateFacadeResponse(GenerateUniqueNumberOtpFacadeResponse.class, request);
+
+        return generateUniqueNumberOtpFacadeResponse;
+    }
+ */
+
