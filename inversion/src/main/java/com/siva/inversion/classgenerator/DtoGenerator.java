@@ -38,17 +38,7 @@ public class DtoGenerator{
                 + Extra.CLOSING_PARANETHESIS.value();
 
 
-        File file = new File(fileName);
-        //Create the file
-        if (file.createNewFile())
-        {
-            System.out.println("Class is created!");
-        } else {
-            System.out.println("Class already exists.");
-        }
-        FileWriter writer = new FileWriter(file);
-        writer.write(line);
-        writer.close();
+        createFile(fileName, line);
     }
 
     public void createPayloadResponse() throws IOException {
@@ -64,17 +54,7 @@ public class DtoGenerator{
                 + Extra.NEW_LINE.value()
                 + Extra.CLOSING_PARANETHESIS.value();
 
-        File file = new File(fileName);
-        //Create the file
-        if (file.createNewFile())
-        {
-            System.out.println("Class is created!");
-        } else {
-            System.out.println("Class already exists.");
-        }
-        FileWriter writer = new FileWriter(file);
-        writer.write(line);
-        writer.close();
+        createFile(fileName, line);
     }
 
     public void createFacadeRequest() throws IOException {
@@ -91,17 +71,7 @@ public class DtoGenerator{
                 + Extra.CLOSING_PARANETHESIS.value();
 
 
-        File file = new File(fileName);
-        //Create the file
-        if (file.createNewFile())
-        {
-            System.out.println("Class is created!");
-        } else {
-            System.out.println("Class already exists.");
-        }
-        FileWriter writer = new FileWriter(file);
-        writer.write(line);
-        writer.close();
+        createFile(fileName, line);
     }
 
     public void createFacadeResponse() throws IOException {
@@ -117,17 +87,7 @@ public class DtoGenerator{
                 + Extra.NEW_LINE.value()
                 + Extra.CLOSING_PARANETHESIS.value();
 
-        File file = new File(fileName);
-        //Create the file
-        if (file.createNewFile())
-        {
-            System.out.println("Class is created!");
-        } else {
-            System.out.println("Class already exists.");
-        }
-        FileWriter writer = new FileWriter(file);
-        writer.write(line);
-        writer.close();
+        createFile(fileName, line);
     }
 
     public void createServiceRequest() throws IOException {
@@ -144,17 +104,7 @@ public class DtoGenerator{
                 + Extra.CLOSING_PARANETHESIS.value();
 
 
-        File file = new File(fileName);
-        //Create the file
-        if (file.createNewFile())
-        {
-            System.out.println("Class is created!");
-        } else {
-            System.out.println("Class already exists.");
-        }
-        FileWriter writer = new FileWriter(file);
-        writer.write(line);
-        writer.close();
+        createFile(fileName, line);
     }
 
     public void createServiceResponse() throws IOException {
@@ -171,17 +121,7 @@ public class DtoGenerator{
                 + Extra.CLOSING_PARANETHESIS.value();
 
 
-        File file = new File(fileName);
-        //Create the file
-        if (file.createNewFile())
-        {
-            System.out.println("Class is created!");
-        } else {
-            System.out.println("Class already exists.");
-        }
-        FileWriter writer = new FileWriter(file);
-        writer.write(line);
-        writer.close();
+        createFile(fileName, line);
     }
 
     public void createResponseMapper() throws IOException {
@@ -206,6 +146,11 @@ public class DtoGenerator{
                 + Extra.CLOSING_PARANETHESIS.value();
 
 
+            createFile(fileName, line);
+
+    }
+
+    protected void createFile(String fileName, String line) throws IOException {
         File file = new File(fileName);
         //Create the file
         if (file.createNewFile())
@@ -217,8 +162,8 @@ public class DtoGenerator{
         FileWriter writer = new FileWriter(file);
         writer.write(line);
         writer.close();
-    }
 
+    }
 
     public void create() throws IOException, FailedOperationException {
         createPayloadRequest();
@@ -228,6 +173,6 @@ public class DtoGenerator{
         createServiceRequest();
         createServiceResponse();
         createResponseMapper();
-        MethodGenerator.skeletonGenerator(serviceName, microServiceName);
+        MethodGenerator.skeletonGenerator(directoryName, serviceName, microServiceName);
     }
 }

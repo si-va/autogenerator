@@ -1,6 +1,7 @@
 package com.siva.inversion.skeletongenerator;
 
 import com.siva.inversion.constants.Extra;
+import com.siva.inversion.constants.FileExtension;
 import com.siva.inversion.constants.Names;
 import com.siva.inversion.constants.Type;
 import com.siva.inversion.customexceptions.FailedOperationException;
@@ -13,14 +14,16 @@ import java.io.FileWriter;
 
 public class MethodGenerator {
 
-    public static void skeletonGenerator(String name, String microService) throws FailedOperationException {
+    public static void skeletonGenerator(String directoryName, String name, String microService) throws FailedOperationException {
         MethodSignGenerator methodSignGenerator = new MethodSignGenerator();
         ControllerMethodSkeletonGenerator controllerMethodSkeletonGenerator = new ControllerMethodSkeletonGenerator();
         FacadeMethodSkeletonGenerator facadeMethodSkeletonGenerator = new FacadeMethodSkeletonGenerator();
         ServiceMethodSkeletonGenerator serviceMethodSkeletonGenerator = new ServiceMethodSkeletonGenerator();
 
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(name));
+
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(directoryName+"//"+name + FileExtension.FILE_EXTENSION.value()));
 
             String line =
                     methodSignGenerator.methodSignatureGenerator(name , Names.Payload.value()) +
