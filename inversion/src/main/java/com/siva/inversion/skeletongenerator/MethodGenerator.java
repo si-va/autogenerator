@@ -3,7 +3,6 @@ package com.siva.inversion.skeletongenerator;
 import com.siva.inversion.constants.Extra;
 import com.siva.inversion.constants.FileExtension;
 import com.siva.inversion.constants.Names;
-import com.siva.inversion.constants.Type;
 import com.siva.inversion.customexceptions.FailedOperationException;
 import com.siva.inversion.skeletongenerator.skeletontype.ControllerMethodSkeletonGenerator;
 import com.siva.inversion.skeletongenerator.skeletontype.FacadeMethodSkeletonGenerator;
