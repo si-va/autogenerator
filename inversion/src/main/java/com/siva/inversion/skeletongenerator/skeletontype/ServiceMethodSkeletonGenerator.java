@@ -48,7 +48,7 @@ public class ServiceMethodSkeletonGenerator {
         String returnWord = "return";
         String methodCall =
                 Utility.getNormalName(methodName) +
-                        Names.Facade.value() +
+                        Names.Service.value() +
                         Type.Response.value();
         instruction = returnWord + " " + methodCall;
         return instruction;
