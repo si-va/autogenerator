@@ -1,6 +1,7 @@
 package com.siva.inversion.constants;
 
 public enum Names {
+    FromFacadeMapper("FromFacadeMapper"),
     Mapper("Mapper"),
     Controller("Controller"),
     Payload("Payload"),

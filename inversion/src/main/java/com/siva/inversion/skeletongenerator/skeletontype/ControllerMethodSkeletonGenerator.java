@@ -4,6 +4,8 @@ import com.siva.inversion.utility.Utility;
 import com.siva.inversion.constants.Names;
 import com.siva.inversion.constants.Type;
 
+import javax.rmi.CORBA.Util;
+
 public class ControllerMethodSkeletonGenerator {
     public String controllerMethodSkeleton(String methodName, String microServiceName){
         String skeleton = "\t";
@@ -12,7 +14,7 @@ public class ControllerMethodSkeletonGenerator {
                 Utility.newLineAndTab(skeleton) +
                 facadeRequestInit(methodName) +
                 Utility.newLineAndTab(skeleton) +
-                facadeResponseInit(methodName) +
+                facadeResponseInit(methodName,microServiceName) +
                 Utility.newLineAndTab(skeleton) +
                 responseMapperInit(methodName) +
                 Utility.newLineAndTab(skeleton) +
@@ -29,7 +31,7 @@ public class ControllerMethodSkeletonGenerator {
                 Utility.getClassName(microServiceName) +
                 Names.Facade.value();
         String microServiceClassName =
-                microServiceName +
+                Utility.getNormalName(microServiceName) +
                 Names.Facade.value();
         String methodCall = "adapterFactory.getSpecificAdapterFromDefault";
         String parameter =
@@ -48,7 +50,7 @@ public class ControllerMethodSkeletonGenerator {
                 Names.Facade.value() +
                 Type.Request.value();
         String facadeRequestName =
-                methodName +
+                Utility.getNormalName(methodName) +
                 Names.Facade.value() +
                 Type.Request.value();
         String methodCall = "generateFacadeRequest";
@@ -56,30 +58,32 @@ public class ControllerMethodSkeletonGenerator {
                 "(" +
                     "request," +
                     Utility.getClassName(methodName) +
+                    Names.Facade.value() +
+                    Type.Request.value() +
                     ".class" +
                 ");";
         instruction = facadeRequestClass + " " + facadeRequestName + " = " + methodCall + parameter;
         return instruction;
     }
 
-    String facadeResponseInit (String methodName){
+    String facadeResponseInit (String methodName, String microServiceName){
         String instruction = "";
         String facadeResponseClass =
                 Utility.getClassName(methodName) +
                 Names.Facade.value() +
                 Type.Response.value();
         String facadeResponseName =
-                methodName +
+                Utility.getNormalName(methodName) +
                 Names.Facade.value() +
                 Type.Response.value();
         String methodCall =
-                methodName +
+                Utility.getNormalName(microServiceName) +
                 Names.Facade.value() +
                 "." +
-                methodName;
+                Utility.getNormalName(methodName);
         String parameter =
                 "(" +
-                        methodName +
+                        Utility.getNormalName(methodName) +
                         Names.Facade.value() +
                         Type.Request.value() +
                 ");";
@@ -92,7 +96,7 @@ public class ControllerMethodSkeletonGenerator {
         String mapperClass =
                 Utility.getClassName(methodName) +
                 Type.Response.value() +
-                Names.Mapper.value();
+                Names.FromFacadeMapper.value();
         String mapperName =
                 methodName +
                 Names.Mapper.value();
@@ -102,7 +106,7 @@ public class ControllerMethodSkeletonGenerator {
                 "(" +
                         Utility.getClassName(methodName) +
                         Type.Response.value() +
-                        Names.Mapper.value() +
+                        Names.FromFacadeMapper.value() +
                         ".class" +
                 ");";
         instruction = mapperClass + " " + mapperName + " = " + methodCall + parameter;
@@ -116,17 +120,17 @@ public class ControllerMethodSkeletonGenerator {
                 Names.Payload.value() +
                 Type.Response.value();
         String payloadResponseName =
-                methodName +
+                Utility.getNormalName(methodName) +
                 Names.Payload.value() +
                 Type.Response.value();
         String methodCall =
-                methodName +
+                Utility.getNormalName(methodName) +
                 Names.Mapper.value() +
                 "." +
                 "map";
         String parameter =
                 "(" +
-                    methodName +
+                    Utility.getNormalName(methodName) +
                     Names.Facade.value() +
                     Type.Response.value() +
                 ");";
@@ -138,12 +142,12 @@ public class ControllerMethodSkeletonGenerator {
         String instruction = "";
         String returnWord = "return";
         String methodCall =
-                methodName +
+                Utility.getNormalName(methodName) +
                 Names.Controller.value() +
                 Type.Response.value();
         String parameter =
                 "(" +
-                        methodName +
+                        Utility.getNormalName(methodName) +
                         Names.Payload.value() +
                         Type.Response.value() +
                         "," +
