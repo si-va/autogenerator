@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 public class Controller {
 
@@ -19,7 +21,7 @@ public class Controller {
 
         String microServiceName = Utility.getClassName(serviceRequest.getMicroServiceName());
         String serviceName = Utility.getClassName(serviceRequest.getServiceName());
-
+        Map<String, String> paramters = serviceRequest.getParamters();
         DtoGenerator dtoGenerator = new DtoGenerator(microServiceName,serviceName);
         dtoGenerator.create();
     return "Created";

@@ -136,7 +136,7 @@ public class DtoGenerator{
                 + Extra.EXTENDS.value() + " "+ BaseClasses.PAYLOAD_RESPONSE_MAPPER.value()
                 + Extra.LESS_SIGN.value() + serviceName + Names.Facade.value() + Type.Response.value()
                 + Extra.COMMA.value() + serviceName + Names.Payload.value() + Type.Response.value()
-                + Extra.CLOSING_BRACKET.value()
+                + Extra.GREATER_SIGN.value()
                 + Extra.NEW_LINE.value()
                 + Extra.OPENING_PARANETHESIS.value()
                 + Extra.NEW_LINE.value()
@@ -150,6 +150,45 @@ public class DtoGenerator{
 
     }
 
+    public void createRestRequestService() throws IOException {
+
+        String nameOftheClass = serviceName + "RestServiceRequest";
+        String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
+        String line = Extra.NEW_LINE.value()
+                + Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
+                + Extra.EXTENDS.value() + " "+ "BaseMicroSoaRestServiceRequest"
+                + " "
+                + Extra.OPENING_PARANETHESIS.value()
+                + Extra.NEW_LINE.value()
+                + Extra.NEW_LINE.value()
+                + Extra.NEW_LINE.value()
+                + Extra.NEW_LINE.value()
+                + Extra.CLOSING_PARANETHESIS.value();
+
+
+        createFile(fileName, line);
+
+    }
+
+    public void createRestResponseService() throws IOException {
+
+        String nameOftheClass = serviceName + "RestServiceResponse";
+        String fileName = directoryName + "//" + nameOftheClass + FileExtension.FILE_EXTENSION.value();
+        String line = Extra.NEW_LINE.value()
+                + Extra.PUBLIC_CLASS.value()+" "+nameOftheClass + " "
+                + Extra.EXTENDS.value() + " "+ "BaseMicroSoaRestServiceResponse"
+                + " "
+                + Extra.OPENING_PARANETHESIS.value()
+                + Extra.NEW_LINE.value()
+                + Extra.NEW_LINE.value()
+                + Extra.NEW_LINE.value()
+                + Extra.NEW_LINE.value()
+                + Extra.CLOSING_PARANETHESIS.value();
+
+
+        createFile(fileName, line);
+
+    }
     protected void createFile(String fileName, String line) throws IOException {
         File file = new File(fileName);
         //Create the file
@@ -173,6 +212,8 @@ public class DtoGenerator{
         createServiceRequest();
         createServiceResponse();
         createResponseMapper();
+        createRestRequestService();
+        createRestResponseService();
         MethodGenerator.skeletonGenerator(directoryName, serviceName, microServiceName);
     }
 }
