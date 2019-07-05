@@ -26,7 +26,7 @@ public class FacadeMethodSkeletonGenerator {
                         Names.Service.value() +
                         Type.Request.value();
         String facadeRequestName =
-                methodName +
+                Utility.getNormalName(methodName) +
                         Names.Service.value() +
                         Type.Request.value();
         String methodCall = "generateServiceRequest";
@@ -49,17 +49,17 @@ public class FacadeMethodSkeletonGenerator {
                         Names.Service.value() +
                         Type.Response.value();
         String facadeResponseName =
-                methodName +
+                Utility.getNormalName(methodName) +
                         Names.Service.value() +
                         Type.Response.value();
         String methodCall =
-                methodName +
+                Utility.getNormalName(methodName) +
                         Names.Service.value() +
                         "." +
-                        methodName;
+                        Utility.getNormalName(methodName);
         String parameter =
                 "(" +
-                        methodName +
+                        Utility.getNormalName(methodName) +
                         Names.Service.value() +
                         Type.Request.value() +
                         ");";
@@ -74,15 +74,15 @@ public class FacadeMethodSkeletonGenerator {
                         Names.Facade.value() +
                         Type.Response.value();
         String payloadResponseName =
-                methodName +
+                Utility.getNormalName(methodName) +
                         Names.Facade.value() +
                         Type.Response.value();
         String methodCall =
-                methodName +
+                Utility.getNormalName(methodName) +
                         "generateFacadeResponse";
         String parameter =
                 "(" +
-                        methodName +
+                        Utility.getNormalName(methodName) +
                         Names.Facade.value() +
                         Type.Response.value() +
                         ");";
@@ -94,7 +94,7 @@ public class FacadeMethodSkeletonGenerator {
         String instruction = "";
         String returnWord = "return";
         String methodCall =
-                methodName +
+                Utility.getNormalName(methodName) +
                         Names.Facade.value() +
                         Type.Response.value();
         instruction = returnWord + " " + methodCall;
