@@ -37,6 +37,8 @@ public class ControllerMethodSkeletonGenerator {
         String parameter =
                 "(" +
                 Utility.getClassName(microServiceName) +
+                Names.Facade.value() +
+                "Default" +
                 ".class" +
                 ");";
         instruction = microServiceClass + " " + microServiceClassName + " = " + methodCall + parameter;
@@ -98,13 +100,14 @@ public class ControllerMethodSkeletonGenerator {
                 Type.Response.value() +
                 Names.FromFacadeMapper.value();
         String mapperName =
-                methodName +
+                Utility.getNormalName(methodName) +
                 Names.Mapper.value();
         String methodCall =
                 "adapterFactory.getSpecificAdapterFromDefault";
         String parameter =
                 "(" +
                         Utility.getClassName(methodName) +
+                        Names.Payload +
                         Type.Response.value() +
                         Names.FromFacadeMapper.value() +
                         ".class" +
@@ -142,7 +145,7 @@ public class ControllerMethodSkeletonGenerator {
         String instruction = "";
         String returnWord = "return";
         String methodCall =
-                Utility.getNormalName(methodName) +
+                "generate" +
                 Names.Controller.value() +
                 Type.Response.value();
         String parameter =

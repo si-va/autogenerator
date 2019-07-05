@@ -52,10 +52,10 @@ public class MethodSignGenerator {
 
         String exception =
                 "throws " +
-                        ExceptionsType.Exception.value() +
+                        ExceptionsType.MicroServiceException.value() +
                         " {";
 
-        controllerSign = visibility + " " + response + " " + methodName + parameters + " " + exception;
+        controllerSign = visibility + " " + response + " " + Utility.getNormalName(methodName) + parameters + " " + exception;
         return controllerSign;
     }
 
@@ -80,7 +80,7 @@ public class MethodSignGenerator {
                         ExceptionsType.MicroServiceException.value() +
                         " {";
 
-        facadeSign = visibility + " " + response + " " + methodName + parameters + " " + exception;
+        facadeSign = visibility + " " + response + " " + Utility.getNormalName(methodName) + parameters + " " + exception;
         return facadeSign;
     }
 
@@ -105,7 +105,7 @@ public class MethodSignGenerator {
                         ExceptionsType.MicroServiceException.value() +
                         " {";
 
-        serviceSign = visibility + " " + response + " " + methodName + parameters + " " + exception;
+        serviceSign = visibility + " " + response + " " + Utility.getNormalName(methodName) + parameters + " " + exception;
         return serviceSign;
     }
 

@@ -25,15 +25,21 @@ public class MethodGenerator {
             BufferedWriter writer = new BufferedWriter(new FileWriter(directoryName+"//"+name + FileExtension.FILE_EXTENSION.value()));
 
             String line =
+                    "//CONTROLLER" +
+                    Extra.NEW_LINE.value() +
                     methodSignGenerator.methodSignatureGenerator(name , Names.Payload.value()) +
                     Extra.NEW_LINE.value() +
                     controllerMethodSkeletonGenerator.controllerMethodSkeleton(name ,microService) +
                     Extra.NEW_LINE.value() +
                     Extra.NEW_LINE.value() +
+                    "//FACADE" +
+                    Extra.NEW_LINE.value() +
                     methodSignGenerator.methodSignatureGenerator(name,Names.Facade.value()) +
                     Extra.NEW_LINE.value() +
                     facadeMethodSkeletonGenerator.facadeMethodSkeleton(name) +
                     Extra.NEW_LINE.value() +
+                    Extra.NEW_LINE.value() +
+                    "//SERVICE" +
                     Extra.NEW_LINE.value() +
                     methodSignGenerator.methodSignatureGenerator(name, Names.Service.value()) +
                     Extra.NEW_LINE.value() +
