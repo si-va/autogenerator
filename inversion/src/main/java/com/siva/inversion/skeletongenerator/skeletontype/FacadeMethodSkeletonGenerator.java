@@ -1,16 +1,18 @@
 package com.siva.inversion.skeletongenerator.skeletontype;
 
+import com.siva.inversion.constants.Extra;
+import com.siva.inversion.constants.FileExtension;
 import com.siva.inversion.utility.Utility;
 import com.siva.inversion.constants.Names;
 import com.siva.inversion.constants.Type;
 
 public class FacadeMethodSkeletonGenerator {
-    public String facadeMethodSkeleton(String methodName){
+    public String facadeMethodSkeleton(String methodName, String microService){
         String skeleton = "\t";
         skeleton +=
             serviceRequestInit(methodName) +
             Utility.newLineAndTab(skeleton) +
-            serviceResponseInit(methodName) +
+            serviceResponseInit(methodName, microService) +
             Utility.newLineAndTab(skeleton) +
             facadeResponseInit(methodName) +
             Utility.newLineAndTab(skeleton) +
@@ -42,7 +44,7 @@ public class FacadeMethodSkeletonGenerator {
         return instruction;
     }
 
-    String serviceResponseInit (String methodName){
+    String serviceResponseInit (String methodName, String microService){
         String instruction = "";
         String facadeResponseClass =
                 Utility.getClassName(methodName) +
@@ -53,7 +55,7 @@ public class FacadeMethodSkeletonGenerator {
                         Names.Service.value() +
                         Type.Response.value();
         String methodCall =
-                Utility.getNormalName(methodName) +
+                Utility.getNormalName(microService) +
                         Names.Service.value() +
                         "." +
                         Utility.getNormalName(methodName);
@@ -68,7 +70,7 @@ public class FacadeMethodSkeletonGenerator {
     }
 
     String facadeResponseInit (String methodName){
-        String instruction = "";
+        String instruction;
         String payloadResponseClass =
                 Utility.getClassName(methodName) +
                         Names.Facade.value() +
@@ -82,9 +84,12 @@ public class FacadeMethodSkeletonGenerator {
                         "generateFacadeResponse";
         String parameter =
                 "(" +
-                        Utility.getNormalName(methodName) +
+                        Utility.getClassName(methodName) +
                         Names.Facade.value() +
                         Type.Response.value() +
+                        FileExtension.DOT_CLASS +
+                        Extra.COMMA +
+                        Utility.getNormalName(Type.Request.value()) +
                         ");";
         instruction = payloadResponseClass + " " + payloadResponseName + " = " + methodCall + parameter;
         return instruction;

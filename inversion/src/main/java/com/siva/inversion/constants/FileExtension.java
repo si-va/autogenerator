@@ -2,7 +2,9 @@ package com.siva.inversion.constants;
 
 public enum FileExtension {
 
-    FILE_EXTENSION(".java");
+    FILE_EXTENSION(".java"),
+
+    DOT_CLASS(".class");
 
     private String name;
 

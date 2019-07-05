@@ -20,7 +20,9 @@ public enum Extra {
     COMMA(","),
 
     LESS_SIGN("<"),
+
     GREATER_SIGN(">");
+
     private String name;
 
     Extra(String value) {

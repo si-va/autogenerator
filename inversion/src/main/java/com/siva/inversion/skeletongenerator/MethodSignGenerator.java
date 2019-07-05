@@ -71,7 +71,8 @@ public class MethodSignGenerator {
                 "(" +
                         Utility.getClassName(methodName) +
                         Names.Facade.value() +
-                        Type.Request.value() + " " +
+                        Type.Request.value() +
+                        " " +
                         "request" +
                         ")";
 

@@ -36,7 +36,7 @@ public class MethodGenerator {
                     Extra.NEW_LINE.value() +
                     methodSignGenerator.methodSignatureGenerator(name,Names.Facade.value()) +
                     Extra.NEW_LINE.value() +
-                    facadeMethodSkeletonGenerator.facadeMethodSkeleton(name) +
+                    facadeMethodSkeletonGenerator.facadeMethodSkeleton(name, microService) +
                     Extra.NEW_LINE.value() +
                     Extra.NEW_LINE.value() +
                     "//SERVICE" +

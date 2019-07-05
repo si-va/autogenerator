@@ -26,7 +26,7 @@ public class ControllerMethodSkeletonGenerator {
     }
 
     String microServiceClassInit (String microServiceName){
-        String instruction = "";
+        String instruction;
         String microServiceClass =
                 Utility.getClassName(microServiceName) +
                 Names.Facade.value();
@@ -46,7 +46,7 @@ public class ControllerMethodSkeletonGenerator {
     }
 
     String facadeRequestInit (String methodName){
-        String instruction = "";
+        String instruction;
         String facadeRequestClass =
                 Utility.getClassName(methodName) +
                 Names.Facade.value() +
@@ -69,7 +69,7 @@ public class ControllerMethodSkeletonGenerator {
     }
 
     String facadeResponseInit (String methodName, String microServiceName){
-        String instruction = "";
+        String instruction;
         String facadeResponseClass =
                 Utility.getClassName(methodName) +
                 Names.Facade.value() +
@@ -94,7 +94,7 @@ public class ControllerMethodSkeletonGenerator {
     }
 
     String responseMapperInit (String methodName){
-        String instruction = "";
+        String instruction;
         String mapperClass =
                 Utility.getClassName(methodName) +
                 Type.Response.value() +
@@ -117,7 +117,7 @@ public class ControllerMethodSkeletonGenerator {
     }
 
     String controllerResponseInit (String methodName){
-        String instruction = "";
+        String instruction;
         String payloadResponseClass =
                 Utility.getClassName(methodName) +
                 Names.Payload.value() +
@@ -142,7 +142,7 @@ public class ControllerMethodSkeletonGenerator {
     }
 
     String returnStatement (String methodName){
-        String instruction = "";
+        String instruction;
         String returnWord = "return";
         String methodCall =
                 "generate" +
