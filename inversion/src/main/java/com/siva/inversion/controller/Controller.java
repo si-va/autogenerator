@@ -16,16 +16,13 @@ import java.util.Map;
 public class Controller {
 
     @RequestMapping(value = "generate", method = {RequestMethod.POST})
-
     public String create(@RequestBody ServiceRequest serviceRequest) throws Exception, FailedOperationException {
-
         String microServiceName = Utility.getClassName(serviceRequest.getMicroServiceName());
         String serviceName = Utility.getClassName(serviceRequest.getServiceName());
         Map<String, String> requestBodyParameters = serviceRequest.getRequestBodyParameters();
         Map<String, String> responseBodyParameters = serviceRequest.getResponseBodyParameters();
-        int a = 1;
         DtoGenerator dtoGenerator = new DtoGenerator(microServiceName, serviceName, requestBodyParameters, responseBodyParameters);
         dtoGenerator.create();
-    return "Created";
+        return "Created";
     }
 }

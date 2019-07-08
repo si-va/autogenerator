@@ -8,7 +8,7 @@ import com.siva.inversion.constants.Type;
 
 public class FacadeMethodSkeletonGenerator {
     public String facadeMethodSkeleton(String methodName, String microService){
-        String skeleton = "\t";
+        String skeleton = Extra.TAB.value();
         skeleton +=
             serviceRequestInit(methodName) +
             Utility.newLineAndTab(skeleton) +
@@ -16,8 +16,10 @@ public class FacadeMethodSkeletonGenerator {
             Utility.newLineAndTab(skeleton) +
             facadeResponseInit(methodName) +
             Utility.newLineAndTab(skeleton) +
+            BeanCopyProperties(methodName) +
+            Utility.newLineAndTab(skeleton) +
             returnStatement(methodName) +
-            "\n}";
+            Extra.NEW_LINE.value();
         return skeleton;
     }
 
@@ -87,11 +89,28 @@ public class FacadeMethodSkeletonGenerator {
                         Utility.getClassName(methodName) +
                         Names.Facade.value() +
                         Type.Response.value() +
-                        FileExtension.DOT_CLASS +
-                        Extra.COMMA +
+                        FileExtension.DOT_CLASS.value() +
+                        Extra.COMMA.value() +
                         Utility.getNormalName(Type.Request.value()) +
                         ");";
         instruction = payloadResponseClass + " " + payloadResponseName + " = " + methodCall + parameter;
+        return instruction;
+    }
+
+    String BeanCopyProperties (String methodName){
+        String instruction;
+        instruction =
+                Extra.BEAN_COPYPROPERTIES.value() +
+                    Extra.OPENNING_BRACKET.value() +
+                        Utility.getNormalName(methodName) +
+                        Names.Facade.value() +
+                        Type.Response.value()+
+                    Extra.COMMA.value() +
+                        Utility.getNormalName(methodName) +
+                        Names.Service.value() +
+                        Type.Response.value() +
+                    Extra.CLOSING_BRACKET.value() +
+                    Extra.SEMICOLON.value();
         return instruction;
     }
 

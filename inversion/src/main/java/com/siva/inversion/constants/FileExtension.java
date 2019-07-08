@@ -4,6 +4,8 @@ public enum FileExtension {
 
     FILE_EXTENSION(".java"),
 
+    POST(".POST"),
+
     DOT_CLASS(".class");
 
     private String name;

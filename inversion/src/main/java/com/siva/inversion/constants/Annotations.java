@@ -4,6 +4,8 @@ public enum Annotations {
     Override("@Override"),
     Valid("@Valid"),
     RequestBody("@RequestBody"),
+    RequestMapping("@RequestMapping"),
+    RequestMethod("RequestMethod"),
     COMPONENT("@Component");
 
     private String name;

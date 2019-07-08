@@ -272,5 +272,6 @@ public class DtoGenerator{
         createRestRequestService();
         createRestResponseService();
         MethodGenerator.skeletonGenerator(directoryName, serviceName, microServiceName);
+        MethodGenerator.interfaceGenerator(directoryName, serviceName, microServiceName);
     }
 }

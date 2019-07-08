@@ -1,5 +1,6 @@
 package com.siva.inversion.skeletongenerator.skeletontype;
 
+import com.siva.inversion.constants.Extra;
 import com.siva.inversion.constants.Names;
 import com.siva.inversion.constants.Type;
 import com.siva.inversion.utility.Utility;
@@ -7,14 +8,14 @@ import com.siva.inversion.utility.Utility;
 public class ServiceMethodSkeletonGenerator {
 
     public String serviceMethodSkeleton(String methodName){
-        String skeleton = "\t";
+        String skeleton = Extra.TAB.value();
         skeleton +=
-                serviceResponseInit(methodName) +
-                Utility.newLineAndTab(skeleton) +
-                "//Logic Here" +
-                Utility.newLineAndTab(skeleton) +
-                returnStatement(methodName) +
-                "\n}";
+            serviceResponseInit(methodName) +
+            Utility.newLineAndTab(skeleton) +
+            "//Logic Here" +
+            Utility.newLineAndTab(skeleton) +
+            returnStatement(methodName) +
+            Extra.NEW_LINE.value();
         return skeleton;
     }
 
@@ -32,13 +33,13 @@ public class ServiceMethodSkeletonGenerator {
                 "generateServiceResponse";
         String parameter =
                 "(" +
-                        Utility.getClassName(methodName) +
-                        Names.Service.value() +
-                        Type.Response.value() +
-                        ".class" +
-                        "," +
-                        "request" +
-                        ");";
+                    Utility.getClassName(methodName) +
+                    Names.Service.value() +
+                    Type.Response.value() +
+                    ".class" +
+                    "," +
+                    "request" +
+                ");";
         instruction = facadeResponseClass + " " + facadeResponseName + " = " + methodCall + parameter;
         return instruction;
     }

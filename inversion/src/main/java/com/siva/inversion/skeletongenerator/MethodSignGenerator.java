@@ -1,39 +1,50 @@
 package com.siva.inversion.skeletongenerator;
 
-import com.siva.inversion.customexceptions.FailedOperationException;
+import com.siva.inversion.constants.*;
 import com.siva.inversion.utility.Utility;
-import com.siva.inversion.constants.Annotations;
-import com.siva.inversion.constants.ExceptionsType;
-import com.siva.inversion.constants.Names;
-import com.siva.inversion.constants.Type;
 
 public class MethodSignGenerator {
 
-    public String methodSignatureGenerator(String methodName, String methodType) throws FailedOperationException {
+    public String methodSignatureGenerator(String methodName, String methodType, Boolean isInterface) {
         String sign = "";
-        sign += Annotations.Override.value();
+        if(!isInterface) {
+            sign += Annotations.Override.value();
+        }
         sign += "\n";
         switch(methodType){
             case "Payload":
-                sign += controllerMethodSignature(methodName);
+                if(isInterface) {
+                    sign += endpointMethodSignature(methodName);
+                }
+                sign += controllerMethodSignature(methodName,isInterface);
                 break;
             case "Facade":
-                sign += facadeMethodSignature(methodName);
+                sign += facadeMethodSignature(methodName,isInterface);
                 break;
             case "Service":
-                sign += serviceMethodSignature(methodName);
+                sign += serviceMethodSignature(methodName,isInterface);
                 break;
             default:
                 //Exception here
                 break;
         }
 
+        if(isInterface) {
+            sign += Extra.SEMICOLON.value();
+        }
+
         return sign;
     }
 
-    public String controllerMethodSignature(String methodName) throws FailedOperationException {
+    public String controllerMethodSignature(String methodName, Boolean isInterface){
         String controllerSign;
-        String visibility = "public" ;
+        String visibility;
+
+        if(isInterface){
+            visibility = "" ;
+        }else{
+            visibility = "public" ;
+        }
         String response = "ResponseEntity" +
                 "<" +
                 Utility.getClassName(methodName) +
@@ -42,52 +53,63 @@ public class MethodSignGenerator {
                 ">";
         String parameters =
                 "(" +
-                        Annotations.Valid.value() + " " +
-                        Annotations.RequestBody.value() + " " +
-                        Utility.getClassName(methodName) +
-                        Names.Payload.value() +
-                        Type.Request.value() + " " +
-                        "request" +
-                        ")";
+                    Annotations.Valid.value() + " " +
+                    Annotations.RequestBody.value() + " " +
+                    Utility.getClassName(methodName) +
+                    Names.Payload.value() +
+                    Type.Request.value() + " " +
+                    "request" +
+                ")";
 
         String exception =
                 "throws " +
-                        ExceptionsType.MicroServiceException.value() +
-                        " {";
+                ExceptionsType.MicroServiceException.value();
 
         controllerSign = visibility + " " + response + " " + Utility.getNormalName(methodName) + parameters + " " + exception;
         return controllerSign;
     }
 
-    public String facadeMethodSignature(String methodName) throws FailedOperationException {
+    public String facadeMethodSignature(String methodName, Boolean isInterface) {
         String facadeSign;
-        String visibility = "public" ;
+        String visibility;
+
+        if(isInterface){
+            visibility = "" ;
+        }else{
+            visibility = "public" ;
+        }
+
         String response =
                 Utility.getClassName(methodName) +
-                        Names.Facade.value() +
-                        Type.Response.value()
-                ;
+                Names.Facade.value() +
+                Type.Response.value();
         String parameters =
                 "(" +
-                        Utility.getClassName(methodName) +
-                        Names.Facade.value() +
-                        Type.Request.value() +
-                        " " +
-                        "request" +
-                        ")";
+                    Utility.getClassName(methodName) +
+                    Names.Facade.value() +
+                    Type.Request.value() +
+                    " " +
+                    "request" +
+                ")";
 
         String exception =
                 "throws " +
-                        ExceptionsType.MicroServiceException.value() +
-                        " {";
+                ExceptionsType.MicroServiceException.value();
 
         facadeSign = visibility + " " + response + " " + Utility.getNormalName(methodName) + parameters + " " + exception;
         return facadeSign;
     }
 
-    public String serviceMethodSignature(String methodName) throws FailedOperationException {
+    public String serviceMethodSignature(String methodName, Boolean isInterface) {
         String serviceSign;
-        String visibility = "public" ;
+        String visibility;
+
+        if(isInterface){
+            visibility = "" ;
+        }else{
+            visibility = "public" ;
+        }
+
         String response =
                 Utility.getClassName(methodName) +
                         Names.Service.value() +
@@ -95,19 +117,36 @@ public class MethodSignGenerator {
                 ;
         String parameters =
                 "(" +
-                        Utility.getClassName(methodName) +
-                        Names.Service.value() +
-                        Type.Request.value() + " " +
-                        "request" +
-                        ")";
+                    Utility.getClassName(methodName) +
+                    Names.Service.value() +
+                    Type.Request.value() + " " +
+                    "request" +
+                ")";
 
         String exception =
                 "throws " +
-                        ExceptionsType.MicroServiceException.value() +
-                        " {";
+                ExceptionsType.MicroServiceException.value();
 
         serviceSign = visibility + " " + response + " " + Utility.getNormalName(methodName) + parameters + " " + exception;
         return serviceSign;
+    }
+
+    public String endpointMethodSignature(String methodName) {
+        String endpointSign;
+        endpointSign =
+                Annotations.RequestBody.value() +
+                Extra.OPENNING_BRACKET.value() +
+                    "value = " +
+                    "\"" +
+                        Utility.getEndpointName(methodName) +
+                    "\"" +
+                    Extra.COMMA.value() +
+                    "method = " +
+                        Annotations.RequestMethod.value() +
+                        FileExtension.POST.value() +
+                Extra.CLOSING_BRACKET.value() +
+                Extra.NEW_LINE.value();
+        return endpointSign;
     }
 
 }

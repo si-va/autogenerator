@@ -76,4 +76,31 @@ public class Utility {
 
         return string;
     }
+
+    public static String getEndpointName (String string) {
+        try {
+            if (string != null && !string.isEmpty()) {
+
+                string = Utility.getNormalName(string);
+
+                for(int i = 1; i < string.length(); i++){
+                    if(Character.isUpperCase(string.charAt(i))){
+                        String temp = string.substring(0, i);
+                        string = string.substring(i);
+                        string = string.replace(String.valueOf(string.charAt(0)) , "-" + Character.toLowerCase(string.charAt(0)));
+                        string = temp + string;
+                    }
+                }
+
+                string = "/" + string;
+            } else {
+                throw new FailedOperationException();
+            }
+        }
+        catch(FailedOperationException e){
+            ExceptionBuilder.customMessageException(e, stringNullException);
+
+        }
+        return string;
+    }
 }

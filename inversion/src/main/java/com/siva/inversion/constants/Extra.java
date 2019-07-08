@@ -2,14 +2,17 @@ package com.siva.inversion.constants;
 
 public enum Extra {
 
+    TAB("\t"),
+
+    SEMICOLON(";"),
 
     PUBLIC_CLASS("public class"),
 
     EXTENDS("extends"),
 
-    OPENING_PARANETHESIS("{"),
+    OPENING_PARANETHESIS(" {"),
 
-    CLOSING_PARANETHESIS("}"),
+    CLOSING_PARANETHESIS(" }"),
 
     NEW_LINE("\n"),
 
@@ -23,7 +26,10 @@ public enum Extra {
 
     GREATER_SIGN(">"),
 
-    PRIVATE("private");
+    PRIVATE("private"),
+
+    BEAN_COPYPROPERTIES("BeanUtils.copyProperties");
+    ;
     private String name;
 
     Extra(String value) {

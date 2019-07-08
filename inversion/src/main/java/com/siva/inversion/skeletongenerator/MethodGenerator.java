@@ -21,31 +21,32 @@ public class MethodGenerator {
 
         try {
 
-
-            BufferedWriter writer = new BufferedWriter(new FileWriter(directoryName+"//"+name + FileExtension.FILE_EXTENSION.value()));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(directoryName+"//"+name+ "Impl" + FileExtension.FILE_EXTENSION.value()));
 
             String line =
                     "//CONTROLLER" +
                     Extra.NEW_LINE.value() +
-                    methodSignGenerator.methodSignatureGenerator(name , Names.Payload.value()) +
+                    methodSignGenerator.methodSignatureGenerator(name , Names.Payload.value(),false) +
+                    Extra.OPENING_PARANETHESIS.value() +
                     Extra.NEW_LINE.value() +
                     controllerMethodSkeletonGenerator.controllerMethodSkeleton(name ,microService) +
-                    Extra.NEW_LINE.value() +
+                    Extra.CLOSING_PARANETHESIS.value() +
                     Extra.NEW_LINE.value() +
                     "//FACADE" +
                     Extra.NEW_LINE.value() +
-                    methodSignGenerator.methodSignatureGenerator(name,Names.Facade.value()) +
+                    methodSignGenerator.methodSignatureGenerator(name,Names.Facade.value(), false) +
+                    Extra.OPENING_PARANETHESIS.value() +
                     Extra.NEW_LINE.value() +
                     facadeMethodSkeletonGenerator.facadeMethodSkeleton(name, microService) +
-                    Extra.NEW_LINE.value() +
+                    Extra.CLOSING_PARANETHESIS.value() +
                     Extra.NEW_LINE.value() +
                     "//SERVICE" +
                     Extra.NEW_LINE.value() +
-                    methodSignGenerator.methodSignatureGenerator(name, Names.Service.value()) +
+                    methodSignGenerator.methodSignatureGenerator(name, Names.Service.value(), false) +
+                    Extra.OPENING_PARANETHESIS.value() +
                     Extra.NEW_LINE.value() +
-                    serviceMethodSkeletonGenerator.serviceMethodSkeleton(name);
-
-            //Writing every element of the String List into the file
+                    serviceMethodSkeletonGenerator.serviceMethodSkeleton(name) +
+                    Extra.CLOSING_PARANETHESIS.value();
             writer.write(line);
 
             writer.close();
@@ -55,6 +56,32 @@ public class MethodGenerator {
         }
     }
 
+    public static void interfaceGenerator(String directoryName, String name, String microService) {
+        MethodSignGenerator methodSignGenerator = new MethodSignGenerator();
+
+        try {
+
+            BufferedWriter writer = new BufferedWriter(new FileWriter(directoryName+"//"+name+ "Interface" + FileExtension.FILE_EXTENSION.value()));
+
+            String line =
+                    "//CONTROLLER" +
+                    methodSignGenerator.methodSignatureGenerator(name , Names.Payload.value(),true) +
+                    Extra.NEW_LINE.value() +
+                    "//FACADE" +
+                    methodSignGenerator.methodSignatureGenerator(name,Names.Facade.value(), true) +
+                    Extra.NEW_LINE.value() +
+                    "//SERVICE" +
+                    methodSignGenerator.methodSignatureGenerator(name, Names.Service.value(), true) +
+                    Extra.NEW_LINE.value();
+            //Writing every element of the String List into the file
+            writer.write(line);
+
+            writer.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 

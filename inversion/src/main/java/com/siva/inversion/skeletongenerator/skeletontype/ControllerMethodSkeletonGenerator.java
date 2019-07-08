@@ -1,5 +1,6 @@
 package com.siva.inversion.skeletongenerator.skeletontype;
 
+import com.siva.inversion.constants.Extra;
 import com.siva.inversion.utility.Utility;
 import com.siva.inversion.constants.Names;
 import com.siva.inversion.constants.Type;
@@ -8,7 +9,7 @@ import javax.rmi.CORBA.Util;
 
 public class ControllerMethodSkeletonGenerator {
     public String controllerMethodSkeleton(String methodName, String microServiceName){
-        String skeleton = "\t";
+        String skeleton = Extra.TAB.value();
         skeleton +=
                 microServiceClassInit(microServiceName) +
                 Utility.newLineAndTab(skeleton) +
@@ -21,7 +22,7 @@ public class ControllerMethodSkeletonGenerator {
                 controllerResponseInit(methodName) +
                 Utility.newLineAndTab(skeleton) +
                 returnStatement(methodName) +
-                "\n}";
+                Extra.NEW_LINE.value();
         return skeleton;
     }
 
