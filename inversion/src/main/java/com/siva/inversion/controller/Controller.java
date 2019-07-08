@@ -1,10 +1,10 @@
 package com.siva.inversion.controller;
 
 
-import com.siva.inversion.customexceptions.FailedOperationException;
-import com.siva.inversion.utility.Utility;
 import com.siva.inversion.classgenerator.DtoGenerator;
 import com.siva.inversion.classgenerator.dto.request.ServiceRequest;
+import com.siva.inversion.customexceptions.FailedOperationException;
+import com.siva.inversion.utility.Utility;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,8 +21,9 @@ public class Controller {
 
         String microServiceName = Utility.getClassName(serviceRequest.getMicroServiceName());
         String serviceName = Utility.getClassName(serviceRequest.getServiceName());
-        Map<String, String> paramters = serviceRequest.getParamters();
-        DtoGenerator dtoGenerator = new DtoGenerator(microServiceName,serviceName);
+        Map<String, String> parameters = serviceRequest.getParameters();
+        int a = 1;
+        DtoGenerator dtoGenerator = new DtoGenerator(microServiceName, serviceName, parameters);
         dtoGenerator.create();
     return "Created";
     }

@@ -9,7 +9,7 @@ public class ServiceRequest {
 
     private String serviceName;
 
-    private Map<String, String> paramters;
+    private Map<String, String> parameters;
 
     public String getServiceName() {
         return serviceName;
@@ -27,11 +27,12 @@ public class ServiceRequest {
         this.microServiceName = microServiceName;
     }
 
-    public Map<String, String> getParamters() {
-        return paramters;
+    public Map<String, String> getParameters() {
+        return parameters;
     }
 
-    public void setParamters(Map<String, String> paramters) {
-        this.paramters = paramters;
+    public void setParameters(Map<String, String> parameters) {
+        this.parameters = parameters;
     }
+
 }

@@ -21,8 +21,9 @@ public enum Extra {
 
     LESS_SIGN("<"),
 
-    GREATER_SIGN(">");
+    GREATER_SIGN(">"),
 
+    PRIVATE("private");
     private String name;
 
     Extra(String value) {
