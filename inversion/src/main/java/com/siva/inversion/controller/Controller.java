@@ -21,9 +21,10 @@ public class Controller {
 
         String microServiceName = Utility.getClassName(serviceRequest.getMicroServiceName());
         String serviceName = Utility.getClassName(serviceRequest.getServiceName());
-        Map<String, String> parameters = serviceRequest.getParameters();
+        Map<String, String> requestBodyParameters = serviceRequest.getRequestBodyParameters();
+        Map<String, String> responseBodyParameters = serviceRequest.getResponseBodyParameters();
         int a = 1;
-        DtoGenerator dtoGenerator = new DtoGenerator(microServiceName, serviceName, parameters);
+        DtoGenerator dtoGenerator = new DtoGenerator(microServiceName, serviceName, requestBodyParameters, responseBodyParameters);
         dtoGenerator.create();
     return "Created";
     }
