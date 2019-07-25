@@ -98,6 +98,7 @@ public class ControllerMethodSkeletonGenerator {
         String instruction;
         String mapperClass =
                 Utility.getClassName(methodName) +
+                Names.Payload.value() +
                 Type.Response.value() +
                 Names.FromFacadeMapper.value();
         String mapperName =

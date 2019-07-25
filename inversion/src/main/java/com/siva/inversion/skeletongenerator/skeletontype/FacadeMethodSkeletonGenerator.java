@@ -82,7 +82,6 @@ public class FacadeMethodSkeletonGenerator {
                         Names.Facade.value() +
                         Type.Response.value();
         String methodCall =
-                Utility.getNormalName(methodName) +
                         "generateFacadeResponse";
         String parameter =
                 "(" +
